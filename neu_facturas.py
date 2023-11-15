@@ -1,3 +1,4 @@
+import requests
 def get_fact_notif(url,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-31T00:00:00"):
     try:
         response = requests.post(url, headers=headers,json = {"Id_service": id,"From": From,  "To": To})
