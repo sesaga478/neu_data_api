@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-def get_fact_notif_df(url,token,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-31T00:00:00"):
+def neu_fact_notif_df(url,token,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-31T00:00:00"):
     #id ==> id_service
     headers= {"Authorization": f"Bearer {token}"}
     try:
