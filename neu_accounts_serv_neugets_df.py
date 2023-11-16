@@ -1,5 +1,6 @@
 import requests
-def get_acc_serv_neug(token,url,id):
+import pandas as pd
+def get_acc_serv_neug_df(token,url,id):
   #id ==> integer from id_account
   headers= {"Authorization": f"Bearer {token}"}
   url=url+str(id)
