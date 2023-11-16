@@ -1,5 +1,8 @@
 import requests
-def get_fact_notif(url,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-31T00:00:00"):
+import pandas as pd
+def get_fact_notif_df(url,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-31T00:00:00"):
+    #id ==> id_service
+    headers= {"Authorization": f"Bearer {token}"}
     try:
         response = requests.post(url, headers=headers,json = {"Id_service": id,"From": From,  "To": To})
         print(response)
@@ -13,6 +16,6 @@ def get_fact_notif(url,id=2219, From:str="2023-01-01T00:00:00", To:str="2023-12-
                 response = requests.post(url+"?page={PagenNumber}".format(PagenNumber=i), headers=headers,json = {"Id_service": id,"From": From,  "To": To})
                 myjson = response.json()
                 data.extend(myjson['data'])
-        return data
+        return pd.DataFrame(data)
     except:
         print("No se obtuvieron datos")
