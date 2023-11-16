@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-def neu_moras_df():
+def neu_moras_df(token):
   url="https://api.neu.com.co/bills/overdue/"
   headers= {"Authorization": f"Bearer {token}"}
   response = requests.get(url, headers=headers)
